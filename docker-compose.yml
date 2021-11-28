@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+  hummingbird:
+    image: hummingbird
+    container_name: hummingbird
+    cap_add:
+      - net_admin
+    environment:
+      TZ: 'America/Chicago'
+    restart: unless-stopped
+    volumes:
+      - /dev/net:/dev/net:z
+      - ./config.ovpn:/config.ovpn:Z
